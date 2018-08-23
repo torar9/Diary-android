@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements recycleItemOnClic
         }
         catch(Exception e)
         {
-            System.out.println(e.getMessage());
+            System.err.println(e.getMessage());
         }
 
         lad.setClickListener(this);
@@ -48,8 +48,6 @@ public class MainActivity extends AppCompatActivity implements recycleItemOnClic
 
     public void newButtonClick(View v)
     {
-        System.out.println("New Button :)");
-
         Intent intent = new Intent(MainActivity.this, NewDataActivity.class);
         intent.putExtra("MODE", "new");
         this.startActivityForResult(intent, 1);
@@ -68,7 +66,6 @@ public class MainActivity extends AppCompatActivity implements recycleItemOnClic
 
                 if(mode.equals("new"))
                 {
-                    System.out.println("main new");
                     try
                     {
                         String text = data.getStringExtra("text");
@@ -76,28 +73,25 @@ public class MainActivity extends AppCompatActivity implements recycleItemOnClic
                     }
                     catch(Exception e)
                     {
-                        System.out.println(e.getMessage());
+                        System.err.println(e.getMessage());
                     }
                 }
                 else if(mode.equals("edit"))
                 {
-                    System.out.println("main edit");
                     String text = data.getStringExtra("text");
                     String id = data.getStringExtra("id");
 
                     try
                     {
-                        System.out.println("edit in main text: " + text + " id: " + id);
                         lad.editData(new UserData(text, id));
                     }
                     catch(Exception e)
                     {
-                        System.out.println(e.getMessage());
+                        System.err.println(e.getMessage());
                     }
                 }
                 else if(mode.equals("delete"))
                 {
-                    System.out.println("main delete");
                     String text = data.getStringExtra("text");
                     String id = data.getStringExtra("id");
 
@@ -107,7 +101,7 @@ public class MainActivity extends AppCompatActivity implements recycleItemOnClic
                     }
                     catch(Exception e)
                     {
-                        System.out.println(e.getMessage());
+                        System.err.println(e.getMessage());
                     }
                 }
             }
@@ -115,8 +109,7 @@ public class MainActivity extends AppCompatActivity implements recycleItemOnClic
     }
 
     public void deleteInListButtonClick(View v)
-    {
-        System.out.println("Remove Button :)");
+    {//to be done...
     }
 
     public static ListAdapter getAdapter()

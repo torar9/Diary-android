@@ -56,7 +56,6 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>
     {
         this.removeData(data);
         this.addData(data);
-        System.out.println("After save: text: " + data.getText() + " id: " + data.getId());
     }
 
     @Override

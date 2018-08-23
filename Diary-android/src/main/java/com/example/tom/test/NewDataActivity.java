@@ -25,7 +25,6 @@ public class NewDataActivity extends AppCompatActivity
 
         Intent intent = getIntent();
         mode = intent.getStringExtra("MODE");
-        System.out.println("The mode is: " + mode);
 
         switch(mode)
         {
@@ -109,7 +108,6 @@ public class NewDataActivity extends AppCompatActivity
 
     public void deleteButtonClick(View v)
     {
-        System.out.println("delete button new");
         Intent intent = new Intent();
         intent.putExtra("text", data.getText());
         intent.putExtra("id", data.getId());

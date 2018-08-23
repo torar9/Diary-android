@@ -99,7 +99,7 @@ public class Database implements IDatabase
         }
         catch(Exception e)
         {
-            System.out.println("Unable to add data" + e.getMessage());
+            System.err.println("Unable to add data" + e.getMessage());
         }
     }
 
@@ -153,7 +153,6 @@ public class Database implements IDatabase
                 Element element = (Element) node;
                 String date = element.getAttribute("date");
                 String text = element.getElementsByTagName("text").item(0).getTextContent();
-                System.out.println("Date: " + date + " Text: " + text);
                 it.add(new UserData(text, date));
             }
             else
