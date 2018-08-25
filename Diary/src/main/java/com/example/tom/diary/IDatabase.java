@@ -11,6 +11,7 @@ import java.util.ArrayList;
 public interface IDatabase
 {
     /**
+     * Adds new user data
      * @param data
      * @throws Exception if something went wrong, contains message for user.
      */
@@ -18,14 +19,14 @@ public interface IDatabase
 
     /**
      * Replaces the old data with new data.
-     * @param newData replaces the oldData
+     * @param newData new data
      * @throws Exception if something went wrong, contains message for user.
      */
     void editData(UserData newData) throws Exception;
 
     /**
      * Removes user data.
-     * @param data
+     * @param data data to be removed
      * @throws Exception if something went wrong, contains message for user.
      */
     void removeData(UserData data) throws Exception;
