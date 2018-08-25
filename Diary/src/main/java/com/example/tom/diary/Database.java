@@ -19,7 +19,7 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
 /**
- *  Store user data into file
+ *  Store user data into xml file
  * @author Tomáš Silber
  */
 public class Database implements IDatabase
@@ -34,6 +34,9 @@ public class Database implements IDatabase
         init();
     }
 
+    /**
+     * Creates xml file with root element if data file does not exists
+     */
     private void init()
     {
         try
@@ -58,6 +61,11 @@ public class Database implements IDatabase
         }
     }
 
+    /**
+     * Saves Document to xml file
+     * @param doc Doc with data
+     * @throws Exception
+     */
     private void saveXMLToFile(Document doc) throws Exception
     {
         TransformerFactory transformerFactory = TransformerFactory.newInstance();
@@ -67,6 +75,11 @@ public class Database implements IDatabase
         transformer.transform(source, result);
     }
 
+    /**
+     * Returns root document from xml user data file
+     * @return
+     * @throws Exception Contains message for user.
+     */
     private Document getXMLDoc() throws Exception
     {
         File fXmlFile = new File(fpath);
@@ -76,6 +89,11 @@ public class Database implements IDatabase
         return dBuilder.parse(fXmlFile);
     }
 
+    /**
+     * Saves new data into xml file
+     * @param data Contains new data to save
+     * @throws Exception Contains message for user.
+     */
     @Override
     public void addData(UserData data) throws Exception
     {
@@ -103,6 +121,11 @@ public class Database implements IDatabase
         }
     }
 
+    /**
+     * Removes corresponding data from xml according to unique identifier data.getId()
+     * @param data
+     * @throws Exception Contains message for user.
+     */
     @Override
     public void removeData(UserData data) throws Exception
     {
@@ -130,6 +153,11 @@ public class Database implements IDatabase
         }
     }
 
+    /**
+     * Replace corresponding(according data.getId()) text in xml file with new text from data.
+     * @param data
+     * @throws Exception Contains message for user.
+     */
     @Override
     public void editData(UserData data) throws Exception
     {
@@ -137,6 +165,11 @@ public class Database implements IDatabase
         addData(data);
     }
 
+    /**
+     * Returns ArrayList with all saved data inside xml file
+     * @return
+     * @throws Exception Contains message for user.
+     */
     @Override
     public ArrayList<UserData> getContent() throws Exception
     {
