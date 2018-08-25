@@ -1,4 +1,4 @@
-package com.example.tom.test;
+package com.example.tom.diary;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.example.tom.test.R;
 
 import java.util.ArrayList;
 

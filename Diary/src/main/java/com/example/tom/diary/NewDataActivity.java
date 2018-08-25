@@ -1,4 +1,4 @@
-package com.example.tom.test;
+package com.example.tom.diary;
 
 import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import com.example.tom.test.R;
 
 public class NewDataActivity extends AppCompatActivity
 {

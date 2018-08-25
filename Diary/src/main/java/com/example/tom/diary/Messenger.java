@@ -1,4 +1,4 @@
-package com.example.tom.test;
+package com.example.tom.diary;
 
 import android.content.Context;
 import android.widget.Toast;
