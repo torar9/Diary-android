@@ -21,6 +21,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:ellipsize="start"
+            android:background="@null"
             android:ems="10"
             android:inputType="textMultiLine"
             android:singleLine="false"

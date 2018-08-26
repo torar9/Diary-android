@@ -63,6 +63,12 @@ public class UserData
         this.text = text;
     }
 
+    public String getDate()
+    {
+        int pos = id.indexOf('#');
+        return id.substring(0, pos);
+    }
+
     @Override
     public String toString()
     {
@@ -74,7 +80,7 @@ public class UserData
         Random rand = new Random();
         int num = rand.nextInt(10001);
 
-        DateFormat dateFormat = new SimpleDateFormat("HH:mm::ss_dd/MM/yyyy");
+        DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss dd/MM/yyyy");
         Date date = new Date();
 
         String atrb = dateFormat.format(date) + "#" + num;

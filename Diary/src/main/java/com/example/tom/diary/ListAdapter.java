@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.tom.test.R;
@@ -23,12 +24,17 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>
     public class ViewHolder extends RecyclerView.ViewHolder implements  View.OnClickListener
     {
         public TextView title;
+        public EditText date;
         private recycleItemOnClickListener OnClickListener;
 
         public ViewHolder(View v)
         {
             super(v);
             title = (TextView) v.findViewById(R.id.ItemContent);
+
+            date = (EditText) v.findViewById(R.id.DateText);
+            date.setKeyListener(null);
+
             v.setOnClickListener(this);
         }
 
@@ -73,6 +79,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>
     public void onBindViewHolder(ViewHolder holder, int position)
     {
         holder.title.setText(mDataset.get(position).toString().replace("\n", " "));
+        holder.date.setText(mDataset.get(position).getDate());
 
         if(position % 2 == 0)
         {
