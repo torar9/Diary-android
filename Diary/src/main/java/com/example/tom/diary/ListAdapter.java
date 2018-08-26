@@ -28,7 +28,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>
         public ViewHolder(View v)
         {
             super(v);
-            title = (TextView) v.findViewById(R.id.ItemTitle);
+            title = (TextView) v.findViewById(R.id.ItemContent);
             v.setOnClickListener(this);
         }
 
@@ -72,7 +72,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>
     @Override
     public void onBindViewHolder(ViewHolder holder, int position)
     {
-        holder.title.setText(mDataset.get(position).toString());
+        holder.title.setText(mDataset.get(position).toString().replace("\n", " "));
 
         if(position % 2 == 0)
         {
