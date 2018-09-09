@@ -1,7 +1,6 @@
 package com.example.tom.diary;
 
 import android.app.Activity;
-import android.app.Dialog;
 import android.content.DialogInterface;
 
 import com.example.tom.test.R;

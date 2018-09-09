@@ -1,12 +1,12 @@
 package com.example.tom.diary;
 
 import android.app.Activity;
-import android.app.Dialog;
 import android.content.DialogInterface;
+import android.support.v4.app.DialogFragment;
 
 import com.example.tom.test.R;
 
-public class CheckDialog
+public class CheckDialog extends DialogFragment
 {
     private DialogClickListener listener;
 
