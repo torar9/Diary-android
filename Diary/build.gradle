@@ -2,12 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     signingConfigs {
-        config {
-            keyAlias 'torar'
-            keyPassword 'Su352pot'
-            storeFile file('/home/tom/Dokumenty/torar-android.jks')
-            storePassword 'Su352pot'
-        }
+
     }
     compileSdkVersion 28
     defaultConfig {
