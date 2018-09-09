@@ -2,6 +2,8 @@ package com.example.tom.diary;
 
 import android.content.Context;
 
+import com.example.tom.test.R;
+
 import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;

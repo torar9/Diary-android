@@ -18,14 +18,14 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>
     private ArrayList<UserData> mDataset;
     private RecyclerView list;
     private RecyclerView.LayoutManager RecManager;
-    private recycleItemOnClickListener clickListener;
+    private RecycleItemOnClickListener clickListener;
     private Database db;
 
     public class ViewHolder extends RecyclerView.ViewHolder implements  View.OnClickListener
     {
         public TextView title;
         public EditText date;
-        private recycleItemOnClickListener OnClickListener;
+        private RecycleItemOnClickListener OnClickListener;
 
         public ViewHolder(View v)
         {
@@ -104,7 +104,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>
         this.notifyItemInserted(mDataset.size() - 1);
     }
 
-    public void setClickListener(recycleItemOnClickListener clickListener)
+    public void setClickListener(RecycleItemOnClickListener clickListener)
     {
         this.clickListener = clickListener;
     }

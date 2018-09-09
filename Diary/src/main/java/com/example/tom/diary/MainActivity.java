@@ -1,6 +1,5 @@
 package com.example.tom.diary;
 
-import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,7 +11,7 @@ import android.view.View;
 
 import com.example.tom.test.R;
 
-public class MainActivity extends AppCompatActivity implements recycleItemOnClickListener
+public class MainActivity extends AppCompatActivity implements RecycleItemOnClickListener
 {
     private static Context context;
     private static ListAdapter lad;

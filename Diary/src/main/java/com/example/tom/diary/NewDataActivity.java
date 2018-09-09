@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.example.tom.test.R;
 
-public class NewDataActivity extends AppCompatActivity
+public class NewDataActivity extends AppCompatActivity implements DialogClickListener
 {
     private EditText etext;
     private FloatingActionButton floatingRemoveButton;
@@ -110,16 +110,28 @@ public class NewDataActivity extends AppCompatActivity
 
     public void deleteButtonClick(View v)
     {
+        CheckDialog dialog = new CheckDialog(this);
+        dialog.showDialog("", getString(R.string.msg_check_delete), this);
+    }
+
+    public void cancelButtonClick(View v)
+    {
+        cancelActivity();
+    }
+
+    @Override
+    public void onDialogCancelClick()
+    {
+    }
+
+    @Override
+    public void onDialogOkClick()
+    {
         Intent intent = new Intent();
         intent.putExtra("text", data.getText());
         intent.putExtra("id", data.getId());
         intent.putExtra("MODE", "delete");
         setResult(RESULT_OK, intent);
         finish();
-    }
-
-    public void cancelButtonClick(View v)
-    {
-        cancelActivity();
     }
 }

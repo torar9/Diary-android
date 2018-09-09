@@ -3,4 +3,6 @@
     <string name="msg_approve">Approve</string>
     <string name="msg_ok">Ok</string>
     <string name="msg_cancel">Cancel</string>
+    <string name="msg_check_delete">Do you really want to delete it?</string>
+    <string name="msg_unable_save">Unable to save data: </string>
 </resources>

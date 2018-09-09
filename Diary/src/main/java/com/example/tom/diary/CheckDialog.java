@@ -6,9 +6,16 @@ import android.content.DialogInterface;
 
 import com.example.tom.test.R;
 
-public class Messenger
+public class CheckDialog
 {
-    public static void showError(String title, String msg, Activity activity)
+    private DialogClickListener listener;
+
+    CheckDialog(DialogClickListener listener)
+    {
+        this.listener = listener;
+    }
+
+    public void showDialog(String title, String msg, Activity activity)
     {
         android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(activity);
         builder.setTitle(title);
@@ -16,8 +23,16 @@ public class Messenger
         {
             public void onClick(DialogInterface dialog, int id)
             {
+                listener.onDialogOkClick();
+            }
+        }).setNegativeButton(R.string.msg_cancel, new DialogInterface.OnClickListener()
+        {
+            public void onClick(DialogInterface dialog, int id)
+            {
+                listener.onDialogCancelClick();
             }
         });
+
         builder.create().show();
     }
 }
