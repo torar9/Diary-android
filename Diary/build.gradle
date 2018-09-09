@@ -1,9 +1,17 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        config {
+            keyAlias 'torar'
+            keyPassword 'Su352pot'
+            storeFile file('/home/tom/Dokumenty/torar-android.jks')
+            storePassword 'Su352pot'
+        }
+    }
     compileSdkVersion 28
     defaultConfig {
-        applicationId "com.example.tom.test"
+        applicationId 'com.example.tom.Diary'
         minSdkVersion 21
         targetSdkVersion 24
         versionCode 1
@@ -14,10 +22,15 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
+        }
+        debug {
+            signingConfig signingConfigs.config
         }
     }
     productFlavors {
     }
+    buildToolsVersion '27.0.3'
 }
 
 dependencies {
