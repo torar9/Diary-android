@@ -14,7 +14,7 @@ import com.example.tom.test.R;
 public class MainActivity extends AppCompatActivity implements RecycleItemOnClickListener
 {
     private static Context context;
-    private static ListAdapter lad;
+    private ListAdapter lad;
     private FloatingActionButton floatingNewButton;
     private FloatingActionButton floatingRemoveButton;
     private FloatingActionButton floatingSettingsButton;
@@ -120,11 +120,6 @@ public class MainActivity extends AppCompatActivity implements RecycleItemOnClic
 
     public void deleteInListButtonClick(View v)
     {//to be done...
-    }
-
-    public static ListAdapter getAdapter()
-    {
-        return lad;
     }
 
     public static Context getAppContext()
