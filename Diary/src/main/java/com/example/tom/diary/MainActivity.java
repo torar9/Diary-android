@@ -115,7 +115,6 @@ public class MainActivity extends AppCompatActivity implements RecycleItemOnClic
 
     public void SettingsButtonClick(View v)
     {//to be done...
-        Messenger.showError("","xD", this);
     }
 
     public void deleteInListButtonClick(View v)
