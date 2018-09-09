@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Diary/Diary.iml" filepath="$PROJECT_DIR$/Diary/Diary.iml" />
       <module fileurl="file://$PROJECT_DIR$/Diary-android.iml" filepath="$PROJECT_DIR$/Diary-android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Diary-android.iml" filepath="$PROJECT_DIR$/Diary-android.iml" />
     </modules>
   </component>
 </project>
