@@ -1,5 +1,6 @@
 package com.example.tom.diary;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,6 +18,7 @@ public class MainActivity extends AppCompatActivity implements recycleItemOnClic
     private static ListAdapter lad;
     private FloatingActionButton floatingNewButton;
     private FloatingActionButton floatingRemoveButton;
+    private FloatingActionButton floatingSettingsButton;
     private boolean isInDeleteMode;
 
     @Override
@@ -27,6 +29,8 @@ public class MainActivity extends AppCompatActivity implements recycleItemOnClic
         MainActivity.context = getApplicationContext();
 
         floatingNewButton = (FloatingActionButton)findViewById(R.id.floatingSaveButton);
+        floatingSettingsButton = (FloatingActionButton)findViewById(R.id.floatingSettingsButton);
+        floatingSettingsButton.hide();
         floatingRemoveButton = (FloatingActionButton)findViewById(R.id.floatingDeleteInListButton);
         floatingRemoveButton.hide();
         isInDeleteMode = false;
@@ -42,7 +46,7 @@ public class MainActivity extends AppCompatActivity implements recycleItemOnClic
         }
         catch(Exception e)
         {
-            System.err.println(e.getMessage());
+            Messenger.showError("", e.getMessage(), this);
         }
 
         lad.setClickListener(this);
@@ -75,7 +79,7 @@ public class MainActivity extends AppCompatActivity implements recycleItemOnClic
                     }
                     catch(Exception e)
                     {
-                        System.err.println(e.getMessage());
+                        Messenger.showError("", e.getMessage(), this);
                     }
                 }
                 else if(mode.equals("edit"))
@@ -89,7 +93,7 @@ public class MainActivity extends AppCompatActivity implements recycleItemOnClic
                     }
                     catch(Exception e)
                     {
-                        System.err.println(e.getMessage());
+                        Messenger.showError("", e.getMessage(), this);
                     }
                 }
                 else if(mode.equals("delete"))
@@ -103,11 +107,16 @@ public class MainActivity extends AppCompatActivity implements recycleItemOnClic
                     }
                     catch(Exception e)
                     {
-                        System.err.println(e.getMessage());
+                        Messenger.showError("", e.getMessage(), this);
                     }
                 }
             }
         }
+    }
+
+    public void SettingsButtonClick(View v)
+    {//to be done...
+        Messenger.showError("","xD", this);
     }
 
     public void deleteInListButtonClick(View v)

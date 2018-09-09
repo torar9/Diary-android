@@ -1,12 +1,24 @@
 package com.example.tom.diary;
 
-import android.content.Context;
-import android.widget.Toast;
+import android.app.Activity;
+import android.app.Dialog;
+import android.content.DialogInterface;
+
+import com.example.tom.test.R;
 
 public class Messenger
 {
-    public static void PostMessage(Context context, String message)
+    public static void showError(String title, String msg, Activity activity)
     {
-        Toast.makeText(context, message, Toast.LENGTH_LONG).show();
+        android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(activity);
+        builder.setTitle(title);
+        builder.setMessage(msg).setPositiveButton(R.string.msg_ok, new DialogInterface.OnClickListener()
+        {
+            public void onClick(DialogInterface dialog, int id)
+            {
+            }
+        });
+
+        builder.create().show();
     }
 }
