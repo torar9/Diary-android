@@ -16,6 +16,7 @@ public class NewDataActivity extends AppCompatActivity implements DialogClickLis
     private FloatingActionButton floatingRemoveButton;
     private String mode;
     private UserData data;
+    private String dialogOption;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -108,15 +109,26 @@ public class NewDataActivity extends AppCompatActivity implements DialogClickLis
         }
     }
 
+    /**
+     * Shows dialog and sks user if he really wants to delete the data
+     * @param v
+     */
     public void deleteButtonClick(View v)
     {
-        CheckDialog dialog = new CheckDialog(this);
-        dialog.showDialog("", getString(R.string.msg_check_delete), this);
+        CheckDialog dialog = new CheckDialog("Delete?", getString(R.string.msg_check_delete), this, this);
+        dialogOption = "DELETE";
+        dialog.show();
     }
 
+    /**
+     * Cancels current activity, does not save changes done by user
+     * @param v
+     */
     public void cancelButtonClick(View v)
     {
-        cancelActivity();
+        CheckDialog dialog = new CheckDialog("Cancel?", getString(R.string.msg_check_cancel), this, this);
+        dialogOption = "CANCEL";
+        dialog.show();
     }
 
     @Override
@@ -127,11 +139,18 @@ public class NewDataActivity extends AppCompatActivity implements DialogClickLis
     @Override
     public void onDialogOkClick()
     {
-        Intent intent = new Intent();
-        intent.putExtra("text", data.getText());
-        intent.putExtra("id", data.getId());
-        intent.putExtra("MODE", "delete");
-        setResult(RESULT_OK, intent);
-        finish();
+        if(dialogOption.equals("DELETE"))
+        {
+            Intent intent = new Intent();
+            intent.putExtra("text", data.getText());
+            intent.putExtra("id", data.getId());
+            intent.putExtra("MODE", "delete");
+            setResult(RESULT_OK, intent);
+            finish();
+        }
+        else if(dialogOption.equals("CANCEL"))
+        {
+            cancelActivity();
+        }
     }
 }

@@ -12,22 +12,28 @@ import com.example.tom.test.R;
  */
 public class CheckDialog extends DialogFragment
 {
+    private android.app.AlertDialog.Builder builder;
     private DialogClickListener listener;
 
-    CheckDialog(DialogClickListener listener)
+    /**
+     * Creates new dialog
+     * @param listener
+     */
+    CheckDialog(String title, String msg, Activity activity, DialogClickListener listener)
     {
         this.listener = listener;
+        setDialog(title, msg, activity);
     }
 
     /**
-     * Creates and shows new dialog
+     * Sets dialog
      * @param title Title of the dialog
      * @param msg Message for user
      * @param activity Current activity in which you want to display dialog
      */
-    public void showDialog(String title, String msg, Activity activity)
+    public void setDialog(String title, String msg, Activity activity)
     {
-        android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(activity);
+        builder = new android.app.AlertDialog.Builder(activity);
         builder.setTitle(title);//Sets title for the dialog
 
         //Sets messages of buttons
@@ -45,6 +51,14 @@ public class CheckDialog extends DialogFragment
             }
         });
 
-        builder.create().show();
+        builder.create();
+    }
+
+    /**
+     * Shows dialog
+     */
+    public void show()
+    {
+        builder.show();
     }
 }
