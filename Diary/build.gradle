@@ -1,8 +1,10 @@
 apply plugin: 'com.android.application'
 
 android {
+    lintOptions {
+        checkReleaseBuilds false
+    }
     signingConfigs {
-
     }
     compileSdkVersion 28
     defaultConfig {
