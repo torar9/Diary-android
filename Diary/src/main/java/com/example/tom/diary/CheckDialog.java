@@ -6,6 +6,10 @@ import android.support.v4.app.DialogFragment;
 
 import com.example.tom.test.R;
 
+
+/**
+ * Creates new dialog with 2 buttons and message, when you need to confirm action by user
+ */
 public class CheckDialog extends DialogFragment
 {
     private DialogClickListener listener;

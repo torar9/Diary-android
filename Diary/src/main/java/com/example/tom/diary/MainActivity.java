@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity implements RecycleItemOnClic
     }
 
     /**
-     * Method reacts to activity result, according to this result adds, deletes or edits data.
+     * Method reacts to activity result, according to this result it adds, deletes or edits data.
      * @param requestCode
      * @param resultCode
      * @param data result of the activity: modes: 'new', 'edit', 'delete'
@@ -131,6 +131,10 @@ public class MainActivity extends AppCompatActivity implements RecycleItemOnClic
     {//to be done...
     }
 
+    /**
+     * Returns App Context
+     * @return
+     */
     public static Context getAppContext()
     {
         return MainActivity.context;
