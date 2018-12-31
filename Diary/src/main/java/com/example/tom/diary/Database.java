@@ -90,7 +90,7 @@ public class Database implements IDatabase
     }
 
     /**
-     * Saves new data into xml file
+     * Saves new data into file
      * @param data Contains new data to save
      * @throws Exception Contains message for user.
      */
@@ -122,7 +122,7 @@ public class Database implements IDatabase
     }
 
     /**
-     * Removes corresponding data from xml according to unique identifier data.getId()
+     * Removes corresponding data from file according to unique identifier data.getId()
      * @param data
      * @throws Exception Contains message for user.
      */
@@ -154,7 +154,7 @@ public class Database implements IDatabase
     }
 
     /**
-     * Replace corresponding(according data.getId()) text in xml file with new text from data.
+     * Replace corresponding(according to data.getId()) text in file with new text from data.
      * @param data
      * @throws Exception Contains message for user.
      */
@@ -166,8 +166,8 @@ public class Database implements IDatabase
     }
 
     /**
-     * Returns ArrayList with all saved data inside xml file
-     * @return
+     * Loads ArrayList with data from file and then returns it
+     * @return ArrayList filled with data from file
      * @throws Exception Contains message for user.
      */
     @Override

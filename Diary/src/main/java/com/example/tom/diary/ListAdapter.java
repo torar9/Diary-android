@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>
 {
-    private ArrayList<UserData> mDataset;
+    private ArrayList<UserData> mDataset;//ArrayList of stored user data
     private RecyclerView list;
     private RecyclerView.LayoutManager RecManager;
     private RecycleItemOnClickListener clickListener;
@@ -25,7 +25,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>
     {
         public TextView title;
         public EditText date;
-        private RecycleItemOnClickListener OnClickListener;
+        private RecycleItemOnClickListener OnClickListener;//On click listener for each View
 
         public ViewHolder(View v)
         {
@@ -38,6 +38,10 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>
             v.setOnClickListener(this);
         }
 
+        /**
+         * On click listener for each view in RecyclerView
+         * @param view
+         */
         @Override
         public void onClick(View view)
         {
@@ -49,6 +53,13 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>
         }
     }
 
+    /**
+     * Creates new ListAdapter, sets RecyclerView and its manager
+     * @param context
+     * @param RecManager manager for RecyclerView
+     * @param list
+     * @throws Exception
+     */
     public ListAdapter(Context context, RecyclerView.LayoutManager RecManager, RecyclerView list) throws Exception
     {
         this.list = list;
@@ -60,12 +71,23 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>
         mDataset = db.getContent();
     }
 
+    /**
+     * Edits corresponding data according to (String) data.getId()
+     * @param data
+     * @throws Exception
+     */
     public void editData(UserData data) throws Exception
     {
         this.removeData(data);
         this.addData(data);
     }
 
+    /**
+     * Creates new ViewHolder
+     * @param parent
+     * @param viewType
+     * @return
+     */
     @Override
     public ListAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
     {
@@ -75,12 +97,18 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>
         return vh;
     }
 
+    /**
+     * Sets holder on bind
+     * @param holder
+     * @param position Position of holder
+     */
     @Override
     public void onBindViewHolder(ViewHolder holder, int position)
     {
         holder.title.setText(mDataset.get(position).toString().replace("\n", " "));
         holder.date.setText(mDataset.get(position).getDate());
 
+        //Sets different color for odd and even rows
         if(position % 2 == 0)
         {
             holder.itemView.setBackgroundColor(Color.parseColor("#ffffff"));
@@ -91,24 +119,42 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>
         }
     }
 
+    /**
+     * Returns number of stored data
+     * @return
+     */
     @Override
     public int getItemCount()
     {
         return mDataset.size();
     }
 
+    /**
+     * Adds new data
+     * @param data
+     * @throws Exception
+     */
     public void addData(UserData data) throws Exception
     {
-        db.addData(data);
-        mDataset.add(data);
-        this.notifyItemInserted(mDataset.size() - 1);
+        db.addData(data);//Adds new data into file
+        mDataset.add(data);//Adds data into database
+        this.notifyItemInserted(mDataset.size() - 1);//Notify RecyclerView about changes
     }
 
+    /**
+     * Sets click listener for RecycleItem
+     * @param clickListener
+     */
     public void setClickListener(RecycleItemOnClickListener clickListener)
     {
         this.clickListener = clickListener;
     }
 
+    /**
+     * Removes data from RecyclerView and file
+     * @param data
+     * @throws Exception
+     */
     public void removeData(UserData data) throws Exception
     {
         int pos = getPos(data);
@@ -121,11 +167,21 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>
         this.notifyItemRangeChanged(pos, mDataset.size());
     }
 
+    /**
+     * Return current data at position
+     * @param pos positon of data
+     * @return
+     */
     public UserData getData(int pos)
     {
         return mDataset.get(pos);
     }
 
+    /**
+     * Return current position of data stored in mDataset
+     * @param data
+     * @return
+     */
     private int getPos(UserData data)
     {
         for(int i = 0; i < mDataset.size(); i++)

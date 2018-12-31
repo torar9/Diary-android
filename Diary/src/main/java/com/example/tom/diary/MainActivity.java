@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity implements RecycleItemOnClic
     private FloatingActionButton floatingNewButton;
     private FloatingActionButton floatingRemoveButton;
     private FloatingActionButton floatingSettingsButton;
-    private boolean isInDeleteMode;
+    private boolean isInDeleteMode;//For future use
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity implements RecycleItemOnClic
         floatingSettingsButton.hide();
         floatingRemoveButton = (FloatingActionButton)findViewById(R.id.floatingDeleteInListButton);
         floatingRemoveButton.hide();
-        isInDeleteMode = false;
+        isInDeleteMode = false;//For future use
 
         try
         {
@@ -51,6 +51,10 @@ public class MainActivity extends AppCompatActivity implements RecycleItemOnClic
         lad.setClickListener(this);
     }
 
+    /**
+     * Reacts on new button click and creates new activity
+     * @param v
+     */
     public void newButtonClick(View v)
     {
         Intent intent = new Intent(MainActivity.this, NewDataActivity.class);
@@ -58,6 +62,12 @@ public class MainActivity extends AppCompatActivity implements RecycleItemOnClic
         this.startActivityForResult(intent, 1);
     }
 
+    /**
+     * Method reacts to activity result, according to this result adds, deletes or edits data.
+     * @param requestCode
+     * @param resultCode
+     * @param data result of the activity: modes: 'new', 'edit', 'delete'
+     */
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data)
     {
@@ -126,6 +136,11 @@ public class MainActivity extends AppCompatActivity implements RecycleItemOnClic
         return MainActivity.context;
     }
 
+    /**
+     * Reacts on item click, passes data to new Activity by Intent, mode -> 'edit' extras -> 'text', 'id'
+     * @param v
+     * @param position
+     */
     @Override
     public void onItemClick(View v, int position)
     {

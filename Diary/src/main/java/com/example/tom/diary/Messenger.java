@@ -5,6 +5,9 @@ import android.content.DialogInterface;
 
 import com.example.tom.test.R;
 
+/**
+ * Class is used in case you need to show message to the user
+ */
 public class Messenger
 {
     public static void showError(String title, String msg, Activity activity)

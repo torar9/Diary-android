@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public interface IDatabase
 {
     /**
-     * Adds new user data
+     * Adds new user data into
      * @param data
      * @throws Exception if something went wrong, contains message for user.
      */
