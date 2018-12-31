@@ -25,6 +25,10 @@ public class UserData
         this.id = id;
     }
 
+    /**
+     * Creates new UserData and generates unique data ID
+     * @param text
+     */
     public UserData(String text)
     {
         this.text = text;
