@@ -5,6 +5,7 @@
     <string name="msg_cancel">Cancel</string>
     <string name="msg_check_delete">Do you really want to delete it?</string>
     <string name="msg_check_general">Are you sure?</string>
+    <string name="msg_check_save">Data will be overwritten. Do you want to proceed?</string>
     <string name="msg_check_cancel">Changes will not be saved. Do you want to proceed?</string>
     <string name="msg_unable_save">Unable to save data: </string>
 </resources>

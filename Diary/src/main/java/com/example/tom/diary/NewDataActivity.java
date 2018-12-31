@@ -53,6 +53,9 @@ public class NewDataActivity extends AppCompatActivity implements DialogClickLis
 
     }
 
+    /**
+     * Cancel current activity and return to parent activity
+     */
     private void cancelActivity()
     {
         Intent intent = new Intent();
@@ -60,7 +63,11 @@ public class NewDataActivity extends AppCompatActivity implements DialogClickLis
         finish();
     }
 
-    public void saveButtonClick(View v)
+    /**
+     * According to mode method saves, edist or do nothing with data. Then it cancel current
+     * activity and returns to parent activity
+     */
+    private void reactToUser()
     {
         switch(mode)
         {
@@ -80,7 +87,7 @@ public class NewDataActivity extends AppCompatActivity implements DialogClickLis
                     cancelActivity();
                 }
             }
-                break;
+            break;
 
             case "edit":
             {
@@ -101,11 +108,29 @@ public class NewDataActivity extends AppCompatActivity implements DialogClickLis
                     cancelActivity();
                 }
             }
-                break;
+            break;
 
             default:
                 cancelActivity();
                 break;
+        }
+    }
+
+    /**
+     * According to mode it saves or edits user data
+     * @param v
+     */
+    public void saveButtonClick(View v)
+    {
+        if(!mode.equals("new"))
+        {
+            CheckDialog dialog = new CheckDialog("Overwrite?", getString(R.string.msg_check_save), this, this);
+            dialogOption = "SAVE";
+            dialog.show();
+        }
+        else
+        {
+            reactToUser();
         }
     }
 
@@ -131,11 +156,17 @@ public class NewDataActivity extends AppCompatActivity implements DialogClickLis
         dialog.show();
     }
 
+    /**
+     * Reacts to cancel button in dialog
+     */
     @Override
     public void onDialogCancelClick()
     {
     }
 
+    /**
+     * Reacts to ok button in dialog
+     */
     @Override
     public void onDialogOkClick()
     {
@@ -151,6 +182,10 @@ public class NewDataActivity extends AppCompatActivity implements DialogClickLis
         else if(dialogOption.equals("CANCEL"))
         {
             cancelActivity();
+        }
+        else
+        {
+            reactToUser();
         }
     }
 }
