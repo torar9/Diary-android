@@ -19,7 +19,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>
     private RecyclerView list;
     private RecyclerView.LayoutManager RecManager;
     private RecycleItemOnClickListener clickListener;
-    private Database db;
+    private IDatabase db;
 
     public class ViewHolder extends RecyclerView.ViewHolder implements  View.OnClickListener
     {

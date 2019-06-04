@@ -19,7 +19,7 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
 /**
- *  Store user data into xml file
+ *  Stores, edits removes user data from xml file
  * @author Tomáš Silber
  */
 public class Database implements IDatabase
