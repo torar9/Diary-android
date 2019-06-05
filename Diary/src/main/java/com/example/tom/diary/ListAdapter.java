@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.tom.test.R;
@@ -21,11 +22,10 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>
     private RecycleItemOnClickListener clickListener;
     private IDatabase db;
 
-    public class ViewHolder extends RecyclerView.ViewHolder implements  View.OnClickListener
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener
     {
         public TextView title;
         public EditText date;
-        private RecycleItemOnClickListener OnClickListener;//On click listener for each View
 
         public ViewHolder(View v)
         {

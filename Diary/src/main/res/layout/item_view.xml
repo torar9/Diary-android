@@ -20,8 +20,8 @@
         android:id="@+id/ItemContent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@null"
         android:layout_margin="5dp"
+        android:background="@null"
         android:textAlignment="center"
         android:textSize="35sp" />
 
