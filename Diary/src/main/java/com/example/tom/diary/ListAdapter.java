@@ -25,14 +25,14 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener
     {
         public TextView title;
-        public EditText date;
+        public TextView date;
 
         public ViewHolder(View v)
         {
             super(v);
             title = (TextView) v.findViewById(R.id.ItemContent);
 
-            date = (EditText) v.findViewById(R.id.DateText);
+            date = (TextView) v.findViewById(R.id.DateText);
             date.setKeyListener(null);
 
             v.setOnClickListener(this);
