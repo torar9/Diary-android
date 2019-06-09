@@ -3,6 +3,9 @@ package com.example.tom.diary;
 import android.content.Intent;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.preference.PreferenceManager;
+
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -23,7 +26,13 @@ public class NewDataActivity extends AppCompatActivity implements DialogClickLis
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_data_activity);//saveButtonClick cancelButtonClick
+
+        SharedPreferences shr = PreferenceManager.getDefaultSharedPreferences(MainActivity.getAppContext());
+        float textSize = Float.parseFloat(shr.getString("editor_text", "12"));
+
         etext = (EditText)findViewById(R.id.newText);
+        etext.setTextSize(textSize);
+
         floatingRemoveButton = (FloatingActionButton)findViewById(R.id.floatingDeleteButton);
 
         Intent intent = getIntent();

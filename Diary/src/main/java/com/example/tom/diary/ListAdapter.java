@@ -1,7 +1,10 @@
 package com.example.tom.diary;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Color;
+
+import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,7 +19,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>
 {
     private ArrayList<UserData> mDataset;//ArrayList of stored user data
     private RecyclerView list;
-    private RecyclerView.LayoutManager RecManager;
+    private RecyclerView.LayoutManager recManager;
     private RecycleItemOnClickListener clickListener;
     private IDatabase db;
 
@@ -28,9 +31,16 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>
         public ViewHolder(View v)
         {
             super(v);
+
+            SharedPreferences shr = PreferenceManager.getDefaultSharedPreferences(MainActivity.getAppContext());
+            float titleSize = Float.parseFloat(shr.getString("title_text", "34"));
+            float dateSize = Float.parseFloat(shr.getString("date_text", "12"));
+
             title = (TextView) v.findViewById(R.id.ItemContent);
+            title.setTextSize(titleSize);
 
             date = (TextView) v.findViewById(R.id.DateText);
+            date.setTextSize(dateSize);
             date.setKeyListener(null);
 
             v.setOnClickListener(this);
@@ -54,14 +64,14 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>
     /**
      * Creates new ListAdapter, sets RecyclerView and its manager
      * @param context
-     * @param RecManager manager for RecyclerView
+     * @param recManager manager for RecyclerView
      * @param list
      * @throws Exception
      */
-    public ListAdapter(Context context, RecyclerView.LayoutManager RecManager, RecyclerView list) throws Exception
+    public ListAdapter(Context context, RecyclerView.LayoutManager recManager, RecyclerView list) throws Exception
     {
         this.list = list;
-        list.setLayoutManager(RecManager);
+        list.setLayoutManager(recManager);
         list.setAdapter(this);
         list.setHasFixedSize(true);
 

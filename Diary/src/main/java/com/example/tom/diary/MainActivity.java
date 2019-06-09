@@ -2,11 +2,14 @@ package com.example.tom.diary;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.View;
 
 import com.example.tom.test.R;
@@ -18,7 +21,6 @@ public class MainActivity extends AppCompatActivity implements RecycleItemOnClic
     private FloatingActionButton floatingNewButton;
     private FloatingActionButton floatingRemoveButton;
     private FloatingActionButton floatingSettingsButton;
-    private boolean isInDeleteMode;//For future use
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -26,13 +28,12 @@ public class MainActivity extends AppCompatActivity implements RecycleItemOnClic
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         MainActivity.context = getApplicationContext();
+        PreferenceManager.setDefaultValues(MainActivity.context, R.xml.root_preferences, false);
 
         floatingNewButton = (FloatingActionButton)findViewById(R.id.floatingSaveButton);
         floatingSettingsButton = (FloatingActionButton)findViewById(R.id.floatingSettingsButton);
-        floatingSettingsButton.hide();
         floatingRemoveButton = (FloatingActionButton)findViewById(R.id.floatingDeleteInListButton);
         floatingRemoveButton.hide();
-        isInDeleteMode = false;//For future use
 
         try
         {
@@ -120,11 +121,17 @@ public class MainActivity extends AppCompatActivity implements RecycleItemOnClic
                     }
                 }
             }
+
+            finish();
+            startActivity(getIntent());
         }
     }
 
     public void SettingsButtonClick(View v)
-    {//to be done...
+    {
+        Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+        intent.putExtra("MODE", "settings");
+        this.startActivityForResult(intent, 1);
     }
 
     public void deleteInListButtonClick(View v)
