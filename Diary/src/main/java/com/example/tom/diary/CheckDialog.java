@@ -2,10 +2,9 @@ package com.example.tom.diary;
 
 import android.app.Activity;
 import android.content.DialogInterface;
-import android.support.v4.app.DialogFragment;
+import androidx.fragment.app.DialogFragment;
 
 import com.example.tom.test.R;
-
 
 /**
  * Creates new dialog with 2 buttons and message, when you need to confirm action by user
