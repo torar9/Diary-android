@@ -17,9 +17,11 @@
     <string name="text_header">Text preference</string>
     <string name="text_date">Date text size</string>
     <string name="text_editor">Editor text size</string>
+    <string name="text_gravity">Text aligment</string>
 
     <!-- Text default values -->
     <string name="editor_default_value">18</string>
     <string name="date_default_value">14</string>
     <string name="title_default_value">34</string>
+    <string name="text_default_gravity">CENTER</string>
 </resources>

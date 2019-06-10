@@ -6,6 +6,8 @@ import android.graphics.Color;
 
 import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,11 +36,21 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>
 
             SharedPreferences shr = PreferenceManager.getDefaultSharedPreferences(MainActivity.getAppContext());
             float titleSize = Float.parseFloat(shr.getString("title_text", "34"));
-            float dateSize = Float.parseFloat(shr.getString("date_text", "12"));
+            float dateSize = Float.parseFloat(shr.getString("date_text", "14"));
+            boolean isCentered = shr.getString("gravity_text", "CENTER").equals("CENTER");
 
             title = (TextView) v.findViewById(R.id.ItemContent);
-            title.setTextSize(titleSize);
 
+            if(isCentered)
+            {
+                title.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL);
+            }
+            else
+            {
+                title.setGravity(Gravity.CENTER_HORIZONTAL);
+                title.setTextAlignment(Gravity.RIGHT);
+            }
+            title = (TextView) v.findViewById(R.id.ItemContent);
             date = (TextView) v.findViewById(R.id.DateText);
             date.setTextSize(dateSize);
             date.setKeyListener(null);

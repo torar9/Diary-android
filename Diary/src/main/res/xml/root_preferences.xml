@@ -42,6 +42,14 @@
             app:title="@string/text_editor"
             app:useSimpleSummaryProvider="true" />
 
+        <ListPreference
+            app:defaultValue="@string/text_default_gravity"
+            app:entries="@array/title_gravity_entries"
+            app:entryValues="@array/title_gravity_values"
+            app:key="gravity_text"
+            app:title="@string/text_gravity"
+            app:useSimpleSummaryProvider="true" />
+
     </PreferenceCategory>
 
 </androidx.preference.PreferenceScreen>
