@@ -40,6 +40,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>
             boolean isCentered = shr.getString("gravity_text", "CENTER").equals("CENTER");
 
             title = (TextView) v.findViewById(R.id.ItemContent);
+            title.setTextSize(titleSize);
 
             if(isCentered)
             {
@@ -50,7 +51,6 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>
                 title.setGravity(Gravity.CENTER_HORIZONTAL);
                 title.setTextAlignment(Gravity.RIGHT);
             }
-            title = (TextView) v.findViewById(R.id.ItemContent);
             date = (TextView) v.findViewById(R.id.DateText);
             date.setTextSize(dateSize);
             date.setKeyListener(null);
