@@ -134,7 +134,6 @@ public class NewDataActivity extends AppCompatActivity implements DialogClickLis
         if(mode != IntentOption.NEW)
         {
             CheckDialog dialog = new CheckDialog("Overwrite?", getString(R.string.msg_check_save), this, this);
-            //dialogOption = "SAVE";
             dialog.show();
         }
         else
