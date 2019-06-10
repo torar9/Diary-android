@@ -13,6 +13,10 @@ import android.view.View;
 
 import com.example.tom.test.R;
 
+import static com.example.tom.diary.IntentOption.DELETE;
+import static com.example.tom.diary.IntentOption.EDIT;
+import static com.example.tom.diary.IntentOption.NEW;
+
 public class MainActivity extends AppCompatActivity implements RecycleItemOnClickListener
 {
     private static Context context;
@@ -58,7 +62,7 @@ public class MainActivity extends AppCompatActivity implements RecycleItemOnClic
     public void newButtonClick(View v)
     {
         Intent intent = new Intent(MainActivity.this, NewDataActivity.class);
-        intent.putExtra("MODE", "new");
+        intent.putExtra("MODE", NEW);
         this.startActivityForResult(intent, 1);
     }
 
@@ -77,9 +81,9 @@ public class MainActivity extends AppCompatActivity implements RecycleItemOnClic
         {
             if(resultCode == RESULT_OK)
             {
-                String mode = data.getStringExtra("MODE");
+                IntentOption mode = (IntentOption) data.getSerializableExtra("MODE");
 
-                if(mode.equals("new"))
+                if(mode == NEW)
                 {
                     try
                     {
@@ -91,7 +95,7 @@ public class MainActivity extends AppCompatActivity implements RecycleItemOnClic
                         Messenger.showError("", e.getMessage(), this);
                     }
                 }
-                else if(mode.equals("edit"))
+                else if(mode == EDIT)
                 {
                     String text = data.getStringExtra("text");
                     String id = data.getStringExtra("id");
@@ -105,7 +109,7 @@ public class MainActivity extends AppCompatActivity implements RecycleItemOnClic
                         Messenger.showError("", e.getMessage(), this);
                     }
                 }
-                else if(mode.equals("delete"))
+                else if(mode == DELETE)
                 {
                     String text = data.getStringExtra("text");
                     String id = data.getStringExtra("id");
@@ -129,7 +133,6 @@ public class MainActivity extends AppCompatActivity implements RecycleItemOnClic
     public void SettingsButtonClick(View v)
     {
         Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
-        intent.putExtra("MODE", "settings");
         this.startActivityForResult(intent, 1);
     }
 
@@ -159,7 +162,7 @@ public class MainActivity extends AppCompatActivity implements RecycleItemOnClic
         Intent intent = new Intent(MainActivity.this, NewDataActivity.class);
         intent.putExtra("text", data.getText());
         intent.putExtra("id", data.getId());
-        intent.putExtra("MODE", "edit");
+        intent.putExtra("MODE", EDIT);
         this.startActivityForResult(intent, 1);
     }
 }

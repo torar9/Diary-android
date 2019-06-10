@@ -17,9 +17,9 @@ public class NewDataActivity extends AppCompatActivity implements DialogClickLis
 {
     private EditText etext;
     private FloatingActionButton floatingRemoveButton;
-    private String mode;
+    private IntentOption mode;
     private UserData data;
-    private String dialogOption;
+    private IntentOption dialogOption;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -36,14 +36,14 @@ public class NewDataActivity extends AppCompatActivity implements DialogClickLis
         floatingRemoveButton = (FloatingActionButton)findViewById(R.id.floatingDeleteButton);
 
         Intent intent = getIntent();
-        mode = intent.getStringExtra("MODE");
+        mode = (IntentOption) intent.getSerializableExtra("MODE");
 
         switch(mode)
         {
-            case "new":
+            case NEW:
                 floatingRemoveButton.hide();
                 break;
-            case "edit":
+            case EDIT:
                 String text = intent.getStringExtra("text");
                 String id = intent.getStringExtra("id");
                 data = new UserData(text, id);
@@ -80,14 +80,14 @@ public class NewDataActivity extends AppCompatActivity implements DialogClickLis
     {
         switch(mode)
         {
-            case "new":
+            case NEW:
             {
                 String text = etext.getText().toString();
                 if(!text.isEmpty())
                 {
                     Intent intent = new Intent();
                     intent.putExtra("text", text);
-                    intent.putExtra("MODE", "new");
+                    intent.putExtra("MODE", IntentOption.NEW);
                     setResult(RESULT_OK, intent);
                     finish();
                 }
@@ -98,7 +98,7 @@ public class NewDataActivity extends AppCompatActivity implements DialogClickLis
             }
             break;
 
-            case "edit":
+            case EDIT:
             {
                 String text = etext.getText().toString();
                 String id = data.getId();
@@ -108,7 +108,7 @@ public class NewDataActivity extends AppCompatActivity implements DialogClickLis
                     Intent intent = new Intent();
                     intent.putExtra("text", text);
                     intent.putExtra("id", id);
-                    intent.putExtra("MODE", "edit");
+                    intent.putExtra("MODE", IntentOption.EDIT);
                     setResult(RESULT_OK, intent);
                     finish();
                 }
@@ -131,10 +131,10 @@ public class NewDataActivity extends AppCompatActivity implements DialogClickLis
      */
     public void saveButtonClick(View v)
     {
-        if(!mode.equals("new"))
+        if(mode != IntentOption.NEW)
         {
             CheckDialog dialog = new CheckDialog("Overwrite?", getString(R.string.msg_check_save), this, this);
-            dialogOption = "SAVE";
+            //dialogOption = "SAVE";
             dialog.show();
         }
         else
@@ -150,7 +150,7 @@ public class NewDataActivity extends AppCompatActivity implements DialogClickLis
     public void deleteButtonClick(View v)
     {
         CheckDialog dialog = new CheckDialog("Delete?", getString(R.string.msg_check_delete), this, this);
-        dialogOption = "DELETE";
+        dialogOption = IntentOption.DELETE;
         dialog.show();
     }
 
@@ -161,7 +161,7 @@ public class NewDataActivity extends AppCompatActivity implements DialogClickLis
     public void cancelButtonClick(View v)
     {
         CheckDialog dialog = new CheckDialog("Cancel?", getString(R.string.msg_check_cancel), this, this);
-        dialogOption = "CANCEL";
+        dialogOption = IntentOption.CANCEL;
         dialog.show();
     }
 
@@ -179,16 +179,16 @@ public class NewDataActivity extends AppCompatActivity implements DialogClickLis
     @Override
     public void onDialogOkClick()
     {
-        if(dialogOption.equals("DELETE"))
+        if(dialogOption == IntentOption.DELETE)
         {
             Intent intent = new Intent();
             intent.putExtra("text", data.getText());
             intent.putExtra("id", data.getId());
-            intent.putExtra("MODE", "delete");
+            intent.putExtra("MODE", IntentOption.DELETE);
             setResult(RESULT_OK, intent);
             finish();
         }
-        else if(dialogOption.equals("CANCEL"))
+        else if(dialogOption == IntentOption.CANCEL)
         {
             cancelActivity();
         }
