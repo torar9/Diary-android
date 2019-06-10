@@ -103,7 +103,7 @@ public class NewDataActivity extends AppCompatActivity implements DialogClickLis
                 String text = etext.getText().toString();
                 String id = data.getId();
 
-                if(text != null || !text.isEmpty())
+                if(text != null && !text.isEmpty())
                 {
                     Intent intent = new Intent();
                     intent.putExtra("text", text);
@@ -112,9 +112,9 @@ public class NewDataActivity extends AppCompatActivity implements DialogClickLis
                     setResult(RESULT_OK, intent);
                     finish();
                 }
-                else
+                else//Text is empty, delete it instead of overwrite to empty text
                 {
-                    cancelActivity();
+                    finishIntentWithDelete();
                 }
             }
             break;
@@ -173,6 +173,19 @@ public class NewDataActivity extends AppCompatActivity implements DialogClickLis
     }
 
     /**
+     * Finishes intent and pass DELETE mode
+     */
+    private void finishIntentWithDelete()
+    {
+        Intent intent = new Intent();
+        intent.putExtra("text", data.getText());
+        intent.putExtra("id", data.getId());
+        intent.putExtra("MODE", IntentOption.DELETE);
+        setResult(RESULT_OK, intent);
+        finish();
+    }
+
+    /**
      * Reacts to ok button in dialog
      */
     @Override
@@ -180,12 +193,7 @@ public class NewDataActivity extends AppCompatActivity implements DialogClickLis
     {
         if(dialogOption == IntentOption.DELETE)
         {
-            Intent intent = new Intent();
-            intent.putExtra("text", data.getText());
-            intent.putExtra("id", data.getId());
-            intent.putExtra("MODE", IntentOption.DELETE);
-            setResult(RESULT_OK, intent);
-            finish();
+            finishIntentWithDelete();
         }
         else if(dialogOption == IntentOption.CANCEL)
         {
