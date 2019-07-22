@@ -1,17 +1,17 @@
 package com.example.tom.diary;
 
 import android.content.Intent;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.preference.PreferenceManager;
-
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.preference.PreferenceManager;
+
 import com.example.tom.test.R;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class NewDataActivity extends AppCompatActivity implements DialogClickListener
 {

@@ -31,6 +31,7 @@ public class Database implements IDatabase
     {
         this.cont = cont;
         fpath = cont.getFilesDir().getPath() + "/torar.xml";
+        System.out.println("fpath: " + fpath);
         init();
     }
 

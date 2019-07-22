@@ -3,15 +3,15 @@ package com.example.tom.diary;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import android.view.View;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.view.View;
-
 import com.example.tom.test.R;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import static com.example.tom.diary.IntentOption.DELETE;
 import static com.example.tom.diary.IntentOption.EDIT;

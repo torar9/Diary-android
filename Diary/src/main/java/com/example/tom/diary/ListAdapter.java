@@ -3,15 +3,14 @@ package com.example.tom.diary;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
-
-import androidx.preference.PreferenceManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import androidx.preference.PreferenceManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.tom.test.R;
 
