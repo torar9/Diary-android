@@ -12,7 +12,8 @@
         android:layout_height="fill_parent"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="0dp">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
 
         <androidx.recyclerview.widget.RecyclerView
@@ -56,26 +57,28 @@
                 app:fabSize="normal"
                 app:srcCompat="@android:drawable/ic_input_add"
                 tools:layout_editor_absoluteX="244dp"
-                tools:layout_editor_absoluteY="495dp" />
+                tools:layout_editor_absoluteY="495dp"
+                android:focusable="true" />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/floatingDeleteInListButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="12dp"
+                android:layout_marginStart="12dp"
                 android:clickable="true"
                 android:onClick="deleteInListButtonClick"
                 app:backgroundTint="@android:color/holo_blue_dark"
                 app:fabSize="normal"
                 app:layout_constraintBottom_toBottomOf="@+id/floatingSaveButton"
                 app:layout_constraintStart_toEndOf="@+id/floatingSaveButton"
-                app:srcCompat="@android:drawable/ic_delete" />
+                app:srcCompat="@android:drawable/ic_delete"
+                android:focusable="true" />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/floatingSettingsButton"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="12dp"
+                android:layout_marginStart="12dp"
                 android:layout_weight="1"
                 android:clickable="true"
                 android:onClick="SettingsButtonClick"
@@ -83,7 +86,8 @@
                 app:fabSize="normal"
                 app:layout_constraintBottom_toBottomOf="@+id/floatingSaveButton"
                 app:layout_constraintStart_toEndOf="@+id/floatingSaveButton"
-                app:srcCompat="@android:drawable/ic_menu_manage" />
+                app:srcCompat="@android:drawable/ic_menu_manage"
+                android:focusable="true" />
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
