@@ -21,9 +21,7 @@ public class MainActivity extends AppCompatActivity implements RecycleItemOnClic
 {
     private static Context context;
     private ListAdapter lad;
-    private FloatingActionButton floatingNewButton;
     private FloatingActionButton floatingRemoveButton;
-    private FloatingActionButton floatingSettingsButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -33,8 +31,6 @@ public class MainActivity extends AppCompatActivity implements RecycleItemOnClic
         MainActivity.context = getApplicationContext();
         PreferenceManager.setDefaultValues(MainActivity.context, R.xml.root_preferences, false);
 
-        floatingNewButton = (FloatingActionButton)findViewById(R.id.floatingSaveButton);
-        floatingSettingsButton = (FloatingActionButton)findViewById(R.id.floatingSettingsButton);
         floatingRemoveButton = (FloatingActionButton)findViewById(R.id.floatingDeleteInListButton);
         floatingRemoveButton.hide();
 
