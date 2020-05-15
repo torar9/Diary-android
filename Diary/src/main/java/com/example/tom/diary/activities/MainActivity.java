@@ -1,4 +1,4 @@
-package com.example.tom.diary;
+package com.example.tom.diary.activities;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,12 +10,16 @@ import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.tom.diary.data.ListAdapter;
+import com.example.tom.diary.dialog.Messenger;
+import com.example.tom.diary.dialog.RecycleItemOnClickListener;
+import com.example.tom.diary.data.UserData;
 import com.example.tom.test.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import static com.example.tom.diary.IntentOption.DELETE;
-import static com.example.tom.diary.IntentOption.EDIT;
-import static com.example.tom.diary.IntentOption.NEW;
+import static com.example.tom.diary.activities.IntentOption.DELETE;
+import static com.example.tom.diary.activities.IntentOption.EDIT;
+import static com.example.tom.diary.activities.IntentOption.NEW;
 
 public class MainActivity extends AppCompatActivity implements RecycleItemOnClickListener
 {

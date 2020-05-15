@@ -1,4 +1,4 @@
-package com.example.tom.diary;
+package com.example.tom.diary.data;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;

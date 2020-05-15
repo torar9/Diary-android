@@ -1,4 +1,4 @@
-package com.example.tom.diary;
+package com.example.tom.diary.activities;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -10,6 +10,9 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceManager;
 
+import com.example.tom.diary.dialog.CheckDialog;
+import com.example.tom.diary.dialog.DialogClickListener;
+import com.example.tom.diary.data.UserData;
 import com.example.tom.test.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 

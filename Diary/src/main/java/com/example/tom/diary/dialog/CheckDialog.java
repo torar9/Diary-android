@@ -1,4 +1,4 @@
-package com.example.tom.diary;
+package com.example.tom.diary.dialog;
 
 import android.app.Activity;
 import android.content.DialogInterface;
@@ -19,7 +19,7 @@ public class CheckDialog extends DialogFragment
      * Creates new dialog
      * @param listener
      */
-    CheckDialog(String title, String msg, Activity activity, DialogClickListener listener)
+    public CheckDialog(String title, String msg, Activity activity, DialogClickListener listener)
     {
         this.listener = listener;
         setDialog(title, msg, activity);

@@ -1,4 +1,4 @@
-package com.example.tom.diary;
+package com.example.tom.diary.data;
 
 import java.util.ArrayList;
 

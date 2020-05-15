@@ -10,16 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="com.example.tom.diary.SettingsActivity"
+            android:name="com.example.tom.diary.activities.SettingsActivity"
             android:label="@string/title_activity_settings"></activity>
-        <activity android:name="com.example.tom.diary.MainActivity">
+        <activity android:name="com.example.tom.diary.activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.tom.diary.NewDataActivity" />
+        <activity android:name="com.example.tom.diary.activities.NewDataActivity" />
     </application>
 
 </manifest>

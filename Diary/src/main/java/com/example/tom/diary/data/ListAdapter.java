@@ -1,4 +1,4 @@
-package com.example.tom.diary;
+package com.example.tom.diary.data;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -13,6 +13,8 @@ import android.widget.TextView;
 import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.tom.diary.dialog.RecycleItemOnClickListener;
+import com.example.tom.diary.activities.MainActivity;
 import com.example.tom.test.R;
 
 import java.util.ArrayList;

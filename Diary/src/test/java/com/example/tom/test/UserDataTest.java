@@ -1,6 +1,6 @@
 package com.example.tom.test;
 
-import com.example.tom.diary.UserData;
+import com.example.tom.diary.data.UserData;
 
 import org.junit.Test;
 

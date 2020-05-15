@@ -1,4 +1,4 @@
-package com.example.tom.diary;
+package com.example.tom.diary.dialog;
 
 import android.app.Activity;
 import android.content.DialogInterface;
