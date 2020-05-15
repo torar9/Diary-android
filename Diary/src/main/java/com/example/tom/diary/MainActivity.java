@@ -126,7 +126,7 @@ public class MainActivity extends AppCompatActivity implements RecycleItemOnClic
         }
     }
 
-    public void SettingsButtonClick(View v)
+    public void settingsButtonClick(View v)
     {
         Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
         this.startActivityForResult(intent, 1);

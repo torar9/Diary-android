@@ -81,13 +81,13 @@
                 android:layout_marginStart="12dp"
                 android:layout_weight="1"
                 android:clickable="true"
-                android:onClick="SettingsButtonClick"
+                android:focusable="true"
+                android:onClick="settingsButtonClick"
                 app:backgroundTint="@android:color/holo_blue_dark"
                 app:fabSize="normal"
                 app:layout_constraintBottom_toBottomOf="@+id/floatingSaveButton"
                 app:layout_constraintStart_toEndOf="@+id/floatingSaveButton"
-                app:srcCompat="@android:drawable/ic_menu_manage"
-                android:focusable="true" />
+                app:srcCompat="@android:drawable/ic_menu_manage" />
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
