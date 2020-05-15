@@ -1,5 +1,6 @@
 package com.example.tom.diary;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -29,6 +30,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>
         public TextView title;
         public TextView date;
 
+        @SuppressLint("WrongConstant")
         public ViewHolder(View v)
         {
             super(v);
