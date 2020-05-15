@@ -21,7 +21,6 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>
 {
     private ArrayList<UserData> mDataset;//ArrayList of stored user data
     private RecyclerView list;
-    private RecyclerView.LayoutManager recManager;
     private RecycleItemOnClickListener clickListener;
     private IDatabase db;
 
