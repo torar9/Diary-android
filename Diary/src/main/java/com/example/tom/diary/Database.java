@@ -25,11 +25,9 @@ import javax.xml.transform.stream.StreamResult;
 public class Database implements IDatabase
 {
     private String fpath;
-    private Context cont;
 
     public Database(Context cont)
     {
-        this.cont = cont;
         fpath = cont.getFilesDir().getPath() + "/torar.xml";
         System.out.println("fpath: " + fpath);
         init();

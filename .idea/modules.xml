@@ -4,6 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Diary/Diary.iml" filepath="$PROJECT_DIR$/Diary/Diary.iml" />
       <module fileurl="file://$PROJECT_DIR$/Diary-android.iml" filepath="$PROJECT_DIR$/Diary-android.iml" />
+      <module fileurl="file:///run/media/tom/mistni-disk/stažené/osu/prgma/projekt/Diary-android/Diary/Diary-android-Diary.iml" filepath="/run/media/tom/mistni-disk/stažené/osu/prgma/projekt/Diary-android/Diary/Diary-android-Diary.iml" group="Diary-android/Diary" />
+      <module fileurl="file:///run/media/tom/mistni-disk/stažené/osu/prgma/projekt/Diary-android/projekt-Diary-android.iml" filepath="/run/media/tom/mistni-disk/stažené/osu/prgma/projekt/Diary-android/projekt-Diary-android.iml" group="Diary-android" />
     </modules>
   </component>
 </project>
